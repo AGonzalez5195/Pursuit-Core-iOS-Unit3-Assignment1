@@ -15,17 +15,17 @@ class userViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var users = [userResults]()
+    var users = [userResults]() 
     
-    var userSearchResults: [userResults] {
-        get {
-            guard let searchString = searchString else { return users }
-            guard searchString != ""  else { return users }
-            return userResults.getFilteredUsers(arr: users, searchString: searchString)
+        var userSearchResults: [userResults] {
+            get {
+                guard let searchString = searchString else { return users }
+                guard searchString != ""  else { return users }
+                return userResults.getFilteredUsers(arr: users, searchString: searchString)
+            }
         }
-    }
     
-    var searchString: String? = nil { didSet { self.tableView.reloadData()} }
+        var searchString: String? = nil { didSet { self.tableView.reloadData()} }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueIdentifer = segue.identifier else {fatalError("No identifier in segue")}
@@ -42,16 +42,22 @@ class userViewController: UIViewController {
     }
     
     
-    private func loadData() {
-        guard let pathToJSONFile = Bundle.main.path(forResource: "userinfo", ofType: "json") else { fatalError("Couldn't find json file") }
-        
-        let url = URL(fileURLWithPath: pathToJSONFile)
-        do {
-            let data = try Data(contentsOf: url)
-            let usersFromJSON = try usersModel.getUsers(from: data)
-            users = usersFromJSON
-            users = sortByNameAscending(userArrayToSort: users)
-        } catch {fatalError("\(error)")}
+   private func loadData() {
+        UserAPI.shared.fetchDataForAnyURL(url: "https://randomuser.me/api/?results=300")  { (result) in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let data):
+                do {
+                    self.users = try
+                        usersModel.getUsers(from: data)
+                    self.users = sortByNameAscending(userArrayToSort: self.users)
+                    DispatchQueue.main.sync {
+                        self.tableView.reloadData()
+                    }
+                } catch {fatalError("\(error)")}
+            }
+        }
     }
     
     private func configureDelegateDataSources(){
@@ -61,8 +67,8 @@ class userViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
         configureDelegateDataSources()
+        loadData()
     }
 }
 

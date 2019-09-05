@@ -40,30 +40,39 @@ class detailUserViewController: UIViewController {
         }
     }
     
+    
     private func setLabelText () {
         userLabel.text = currentUser.getFullName()
-        //        var currentUsersDOB = currentUser.dob.date.components(separatedBy: "T")[0]
-        //        currentUsersDOB = Date.changeDateFormat(dateString: currentUsersDOB, fromFormat: "yyyy-MM-dd", toFormat: "MM/dd/yyyy")
-        dobLabel.text = "DOB: \(currentUser.dob)"
+        var currentUsersDOB = currentUser.dob.date.components(separatedBy: "T")[0]
+        currentUsersDOB = Date.changeDateFormat(dateString: currentUsersDOB, fromFormat: "yyyy-MM-dd", toFormat: "MM/dd/yyyy")
+        dobLabel.text = "DOB: \(currentUsersDOB)"
         phoneNumberLabel.text = "Phone #: \(currentUser.phone)"
-        addressLabel.text = "\(currentUser.location.street.capitalized), \(currentUser.location.city.capitalized), \(currentUser.location.state.uppercased())"
+        addressLabel.text = "\(currentUser.getLocation())"
     }
     
     private func setCircleOutline() {
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
-        profileImage.clipsToBounds = true //Lines 85 and 86 are used to adjust the corners so that colorView is a circle.
-        
+        profileImage.clipsToBounds = true
         profileImage.layer.borderColor = UIColor.black.cgColor
         profileImage.layer.borderWidth = 4.0
     }
 }
+
+
+
+
+
+
+
+
+
 
 extension Date {
     static func changeDateFormat(dateString: String, fromFormat: String, toFormat: String) ->String {
         let inputDateFormatter = DateFormatter()
         inputDateFormatter.dateFormat = fromFormat
         let date = inputDateFormatter.date(from: dateString)
-        
+
         let outputDateFormatter = DateFormatter()
         outputDateFormatter.dateFormat = toFormat
         return outputDateFormatter.string(from: date!)

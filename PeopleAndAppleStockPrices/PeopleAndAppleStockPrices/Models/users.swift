@@ -29,14 +29,14 @@ struct userResults: Codable {
     let name: userNameWrapper
     let location: locationWrapper
     let phone: String
-    var dob: String
+    var dob: dobWrapper
     let picture: pictureWrapper
     
     
     func getFullName() -> String {
         let firstName = name.first.capitalized
         let lastName = name.last.capitalized
-        
+
         return "\(firstName) \(lastName)"
     }
     
@@ -44,7 +44,7 @@ struct userResults: Codable {
         let street = location.street.capitalized
         let city = location.city.capitalized
         let state = location.state.capitalized
-        
+
         return "\(street), \(city), \(state)"
     }
     
@@ -56,7 +56,6 @@ struct userResults: Codable {
 struct userNameWrapper: Codable {
     let first: String
     let last: String
-    
 }
 
 struct locationWrapper: Codable {

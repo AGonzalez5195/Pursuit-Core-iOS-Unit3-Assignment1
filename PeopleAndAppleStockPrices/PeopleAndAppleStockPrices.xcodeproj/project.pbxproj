@@ -14,10 +14,13 @@
 		577E5BF621BA8BA20083EB97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577E5BF421BA8BA20083EB97 /* LaunchScreen.storyboard */; };
 		577E5BFF21BA8C3B0083EB97 /* userinfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 577E5BFE21BA8C3B0083EB97 /* userinfo.json */; };
 		577E5C0121BA8C5C0083EB97 /* applstockinfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 577E5C0021BA8C5C0083EB97 /* applstockinfo.json */; };
-		974F4BD62320475F00F0F56B /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974F4BD52320475F00F0F56B /* Contacts.swift */; };
+		974F4BD62320475F00F0F56B /* users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974F4BD52320475F00F0F56B /* users.swift */; };
 		974F4BD823204D2800F0F56B /* sortByName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974F4BD723204D2800F0F56B /* sortByName.swift */; };
 		974F4BDA23204E7B00F0F56B /* detailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974F4BD923204E7B00F0F56B /* detailUserViewController.swift */; };
-		974F4BDF23206B0D00F0F56B /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974F4BD52320475F00F0F56B /* Contacts.swift */; };
+		974F4BDF23206B0D00F0F56B /* users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974F4BD52320475F00F0F56B /* users.swift */; };
+		974F4BE12320B2AA00F0F56B /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974F4BE02320B2AA00F0F56B /* UserAPI.swift */; };
+		974F4C1B2321916000F0F56B /* stocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974F4C1A2321916000F0F56B /* stocks.swift */; };
+		974F4C1D2321931000F0F56B /* stocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974F4C1C2321931000F0F56B /* stocksViewController.swift */; };
 		977993DE2319C6E20040243F /* PeopleAndAppleStockPricesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977993DD2319C6E20040243F /* PeopleAndAppleStockPricesTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,9 +44,12 @@
 		577E5BF721BA8BA20083EB97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		577E5BFE21BA8C3B0083EB97 /* userinfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = userinfo.json; sourceTree = "<group>"; };
 		577E5C0021BA8C5C0083EB97 /* applstockinfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = applstockinfo.json; sourceTree = "<group>"; };
-		974F4BD52320475F00F0F56B /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		974F4BD52320475F00F0F56B /* users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = users.swift; sourceTree = "<group>"; };
 		974F4BD723204D2800F0F56B /* sortByName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortByName.swift; sourceTree = "<group>"; };
 		974F4BD923204E7B00F0F56B /* detailUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailUserViewController.swift; sourceTree = "<group>"; };
+		974F4BE02320B2AA00F0F56B /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		974F4C1A2321916000F0F56B /* stocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stocks.swift; sourceTree = "<group>"; };
+		974F4C1C2321931000F0F56B /* stocksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stocksViewController.swift; sourceTree = "<group>"; };
 		977993DB2319C6E20040243F /* PeopleAndAppleStockPricesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeopleAndAppleStockPricesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		977993DD2319C6E20040243F /* PeopleAndAppleStockPricesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleAndAppleStockPricesTests.swift; sourceTree = "<group>"; };
 		977993DF2319C6E20040243F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,11 +94,9 @@
 		577E5BEA21BA8BA10083EB97 /* PeopleAndAppleStockPrices */ = {
 			isa = PBXGroup;
 			children = (
-				577E5BED21BA8BA10083EB97 /* userViewController.swift */,
-				974F4BD923204E7B00F0F56B /* detailUserViewController.swift */,
-				974F4BD723204D2800F0F56B /* sortByName.swift */,
 				577E5BEF21BA8BA10083EB97 /* Main.storyboard */,
-				974F4BD52320475F00F0F56B /* Contacts.swift */,
+				974F4BE823214EFA00F0F56B /* Controllers */,
+				974F4BE923214F1800F0F56B /* Models */,
 				577E5BFD21BA8BE20083EB97 /* Supporting Files */,
 				577E5BF721BA8BA20083EB97 /* Info.plist */,
 			);
@@ -117,6 +121,27 @@
 				577E5C0021BA8C5C0083EB97 /* applstockinfo.json */,
 			);
 			path = json;
+			sourceTree = "<group>";
+		};
+		974F4BE823214EFA00F0F56B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				577E5BED21BA8BA10083EB97 /* userViewController.swift */,
+				974F4BD923204E7B00F0F56B /* detailUserViewController.swift */,
+				974F4C1C2321931000F0F56B /* stocksViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		974F4BE923214F1800F0F56B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				974F4BE02320B2AA00F0F56B /* UserAPI.swift */,
+				974F4BD723204D2800F0F56B /* sortByName.swift */,
+				974F4C1A2321916000F0F56B /* stocks.swift */,
+				974F4BD52320475F00F0F56B /* users.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		977993DC2319C6E20040243F /* PeopleAndAppleStockPricesTests */ = {
@@ -233,9 +258,12 @@
 			files = (
 				577E5BEE21BA8BA10083EB97 /* userViewController.swift in Sources */,
 				577E5BEC21BA8BA10083EB97 /* AppDelegate.swift in Sources */,
-				974F4BD62320475F00F0F56B /* Contacts.swift in Sources */,
+				974F4BD62320475F00F0F56B /* users.swift in Sources */,
+				974F4C1D2321931000F0F56B /* stocksViewController.swift in Sources */,
+				974F4C1B2321916000F0F56B /* stocks.swift in Sources */,
 				974F4BDA23204E7B00F0F56B /* detailUserViewController.swift in Sources */,
 				974F4BD823204D2800F0F56B /* sortByName.swift in Sources */,
+				974F4BE12320B2AA00F0F56B /* UserAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				974F4BDF23206B0D00F0F56B /* Contacts.swift in Sources */,
+				974F4BDF23206B0D00F0F56B /* users.swift in Sources */,
 				977993DE2319C6E20040243F /* PeopleAndAppleStockPricesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
