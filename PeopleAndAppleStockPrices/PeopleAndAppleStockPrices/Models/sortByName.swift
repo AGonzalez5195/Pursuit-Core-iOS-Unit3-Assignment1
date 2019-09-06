@@ -10,6 +10,6 @@ import Foundation
 
 func sortByNameAscending(userArrayToSort: [userResults]) -> [userResults] {
     var sortedUsers = userArrayToSort
-    sortedUsers = userArrayToSort.sorted(by: {$0.name.first < $1.name.first})
+    sortedUsers = userArrayToSort.sorted(by: {$0.getFullName() < $1.getFullName()})
     return sortedUsers
 }

@@ -113,6 +113,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="eWM-Yg-AdX" kind="show" id="bRo-B6-b8R"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -129,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="1866.6666666666667" y="1259.5982142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Stocks View Controller-->
         <scene sceneID="s6U-89-vFZ">
             <objects>
-                <viewController id="eWM-Yg-AdX" sceneMemberID="viewController">
+                <viewController id="eWM-Yg-AdX" customClass="detailStocksViewController" customModule="PeopleAndAppleStockPrices" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mHQ-FJ-aDW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
