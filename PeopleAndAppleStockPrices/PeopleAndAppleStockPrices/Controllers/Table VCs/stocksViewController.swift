@@ -12,7 +12,21 @@ class stocksViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var stocks = [Stocks]()
+    var stocks = [Stock]()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueIdentifer = segue.identifier else {fatalError("No identifier in segue")}
+        
+        switch segueIdentifer {
+        case "segueToDetail":
+            guard let destVC = segue.destination as? detailStocksViewController else { fatalError("Unexpected segue VC") }
+            guard let selectedIndexPath = tableView.indexPathForSelectedRow else { fatalError("No row selected") }
+            let currentStock = stocks[selectedIndexPath.row]
+            destVC.currentStock = currentStock
+        default:
+            fatalError("unexpected segue identifier")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +40,7 @@ class stocksViewController: UIViewController {
         let url = URL(fileURLWithPath: pathToJSONFile)
         do {
             let data = try Data(contentsOf: url)
-            let stocksFromJSON = try Stocks.getStocks(from: data)
+            let stocksFromJSON = try Stock.getStocks(from: data)
             stocks = stocksFromJSON
 
         } catch {fatalError("\(error)")}

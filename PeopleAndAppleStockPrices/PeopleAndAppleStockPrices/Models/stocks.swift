@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Stocks: Codable {
+struct Stock: Codable {
     let date: String
     let openingPrice: Double
     let closingPrice: Double
@@ -19,9 +19,9 @@ struct Stocks: Codable {
         case closingPrice = "uClose"
     }
     
-    static func getStocks(from data: Data) throws -> [Stocks] {
+    static func getStocks(from data: Data) throws -> [Stock] {
         do {
-            let stocks = try JSONDecoder().decode([Stocks].self, from: data)
+            let stocks = try JSONDecoder().decode([Stock].self, from: data)
             return stocks
         } catch {
             throw JSONError.decodingError(error)
@@ -38,12 +38,12 @@ struct Stocks: Codable {
         return String(date.dropLast(3))
     }
     
-    static func groupStocksBySection(stockArr: [Stocks]) -> [String: [Stocks]] {
+    static func groupStocksBySection(stockArr: [Stock]) -> [String: [Stock]] {
     
-        var dictionary = [String: [Stocks]]()
+        var dictionary = [String: [Stock]]()
         
         for specificStock in stockArr {
-            let key = Stocks.trimDate(date: specificStock.date)
+            let key = Stock.trimDate(date: specificStock.date)
             if var stocks = dictionary[key] {
                 //^ Value        ^Key
                 stocks.append(specificStock) //When there is already an existing key, append the value to that already existing key/array.
