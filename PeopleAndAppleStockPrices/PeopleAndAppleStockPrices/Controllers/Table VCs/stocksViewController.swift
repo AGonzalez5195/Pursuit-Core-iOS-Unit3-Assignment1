@@ -78,7 +78,7 @@ extension stocksViewController: UITableViewDataSource {
         let sectionKey = sections[section]
         guard let stocks = groupedStocks[sectionKey] else {fatalError("no stocks found")}
         
-        return "\(sectionKey.changeDateFormatForHeader(dateFormat: "yyyy-MM"))          Average Price: $\(Stock.getMonthsAveragePrice(stockArr: stocks))"
+        return "\(sectionKey.changeDateFormatForHeader(dateFormat: "yyyy-MM"))                      Avg: $\(Stock.getMonthsAveragePrice(stockArr: stocks))"
         
     }
     

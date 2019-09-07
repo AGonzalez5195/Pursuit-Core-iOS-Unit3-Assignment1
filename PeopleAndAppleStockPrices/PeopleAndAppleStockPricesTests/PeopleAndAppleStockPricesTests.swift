@@ -62,7 +62,7 @@ class PeopleAndAppleStockPricesTests: XCTestCase {
         let randomPersonLocation = locationWrapper(street: "Elmo's World", city: "Harlem", state: "NY")
         let randomPersonPicture = pictureWrapper(large: "Embarassing Photo of David at the Christmas Party.jpg")
         let randomPersonDOB = dobWrapper(date: "01-02-3456")
-        let randomUser = userResults(name: randomPersonName, location: randomPersonLocation, phone: "1-800-TESTDEEZ", dob: randomPersonDOB, picture: randomPersonPicture)
+        let randomUser = userResults(name: randomPersonName, location: randomPersonLocation, phone: "1-800-TESTDEEZ", dob: randomPersonDOB, picture: randomPersonPicture, email: "")
         let name = randomUser.getFullName()
         
         XCTAssert(name == "David Rifkin", "Function is not capitalizing properly, bruh. I'm scared...")
