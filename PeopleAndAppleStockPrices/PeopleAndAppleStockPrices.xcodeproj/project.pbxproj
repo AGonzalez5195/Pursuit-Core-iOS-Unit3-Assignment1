@@ -23,7 +23,6 @@
 		974F4C1D2321931000F0F56B /* stocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974F4C1C2321931000F0F56B /* stocksViewController.swift */; };
 		974F4C1F2321EF1900F0F56B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974F4C1E2321EF1800F0F56B /* Extensions.swift */; };
 		976F54712322955400E305A1 /* detailStocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976F54702322955400E305A1 /* detailStocksViewController.swift */; };
-		976F54E72323349000E305A1 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976F54E62323349000E305A1 /* GradientView.swift */; };
 		977993DE2319C6E20040243F /* PeopleAndAppleStockPricesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977993DD2319C6E20040243F /* PeopleAndAppleStockPricesTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +54,6 @@
 		974F4C1C2321931000F0F56B /* stocksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stocksViewController.swift; sourceTree = "<group>"; };
 		974F4C1E2321EF1800F0F56B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		976F54702322955400E305A1 /* detailStocksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailStocksViewController.swift; sourceTree = "<group>"; };
-		976F54E62323349000E305A1 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		977993DB2319C6E20040243F /* PeopleAndAppleStockPricesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeopleAndAppleStockPricesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		977993DD2319C6E20040243F /* PeopleAndAppleStockPricesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleAndAppleStockPricesTests.swift; sourceTree = "<group>"; };
 		977993DF2319C6E20040243F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 			children = (
 				577E5BED21BA8BA10083EB97 /* userViewController.swift */,
 				974F4C1C2321931000F0F56B /* stocksViewController.swift */,
-				976F54E62323349000E305A1 /* GradientView.swift */,
 			);
 			path = "Table VCs";
 			sourceTree = "<group>";
@@ -283,7 +280,6 @@
 			files = (
 				577E5BEE21BA8BA10083EB97 /* userViewController.swift in Sources */,
 				974F4C1F2321EF1900F0F56B /* Extensions.swift in Sources */,
-				976F54E72323349000E305A1 /* GradientView.swift in Sources */,
 				577E5BEC21BA8BA10083EB97 /* AppDelegate.swift in Sources */,
 				974F4BD62320475F00F0F56B /* users.swift in Sources */,
 				974F4C1D2321931000F0F56B /* stocksViewController.swift in Sources */,
