@@ -16,6 +16,7 @@ class detailUserViewController: UIViewController {
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var emailLabel: UILabel!
     
     var currentUser: userResults!
     
@@ -48,6 +49,7 @@ class detailUserViewController: UIViewController {
         dobLabel.text = "DOB: \(currentUsersDOB)"
         phoneNumberLabel.text = "Phone #: \(currentUser.phone)"
         addressLabel.text = "\(currentUser.getLocation())"
+        emailLabel.text = currentUser.email
     }
     
     private func setCircleOutline() {
