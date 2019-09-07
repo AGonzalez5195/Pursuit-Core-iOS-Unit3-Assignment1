@@ -31,6 +31,7 @@ struct userResults: Codable {
     let phone: String
     var dob: dobWrapper
     let picture: pictureWrapper
+    let email: String
     
     
     func getFullName() -> String {

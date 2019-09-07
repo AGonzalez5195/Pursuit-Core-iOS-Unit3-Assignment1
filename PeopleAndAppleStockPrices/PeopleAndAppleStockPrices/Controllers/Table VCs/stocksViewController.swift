@@ -13,9 +13,7 @@ class stocksViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var stocks = [Stock]()
-    
     var groupedStocks: [String: [Stock]]!
-    
     var sections: [String]!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,7 +70,7 @@ extension stocksViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell")
         cell?.textLabel?.text = currentStock.date
-        cell?.detailTextLabel?.text = currentStock.openingPrice.description
+        cell?.detailTextLabel?.text = "$\(currentStock.openingPrice)"
         return cell!
     }
     
