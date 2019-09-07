@@ -14,6 +14,10 @@ class stocksViewController: UIViewController {
     
     var stocks = [Stock]()
     
+    var groupedStocks: [String: [Stock]]!
+    
+    var sections: [String]!
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueIdentifer = segue.identifier else {fatalError("No identifier in segue")}
         
@@ -31,7 +35,7 @@ class stocksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        loadData() 
+        loadData()
     }
     
     private func loadData() {
@@ -42,6 +46,9 @@ class stocksViewController: UIViewController {
             let data = try Data(contentsOf: url)
             let stocksFromJSON = try Stock.getStocks(from: data)
             stocks = stocksFromJSON
+            groupedStocks = Stock.buildGroupStocks(stocksFromJSON)
+            sections = Array(groupedStocks.keys)
+            sections = sortSections(arr: sections)
 
         } catch {fatalError("\(error)")}
     }
@@ -49,15 +56,32 @@ class stocksViewController: UIViewController {
 
 extension stocksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let sectionKey = sections[section]
+        guard let stocks = groupedStocks[sectionKey] else {fatalError("no stocks found")}
         return stocks.count
     }
     
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell")
+        let sectionKey = sections[indexPath.section]
+        guard let stocks = groupedStocks[sectionKey] else {fatalError("no stocks found")}
         let currentStock = stocks[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell")
         cell?.textLabel?.text = currentStock.date
         cell?.detailTextLabel?.text = currentStock.openingPrice.description
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionKey = sections[section]
+        guard let stocks = groupedStocks[sectionKey] else {fatalError("no stocks found")}
+        
+        return "\(sectionKey.changeDateFormatForHeader(dateFormat: "yyyy-MM"))          Average Price: $\(Stock.getMonthsAveragePrice(stockArr: stocks))"
+        
     }
     
     

@@ -29,7 +29,7 @@ class detailUserViewController: UIViewController {
     
     func loadImage() {
         let urlStr = currentUser.picture.large
-        guard let url = URL(string: urlStr) else {return}
+        guard let url = URL(string: "https://images.pokemontcg.io/dp6/90_hires.png") else {return}
         DispatchQueue.global(qos: .userInitiated).async {
             do { let data = try Data(contentsOf: url)
                 let image = UIImage(data: data)

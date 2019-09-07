@@ -274,11 +274,11 @@
             </objects>
             <point key="canvasLocation" x="-414" y="773"/>
         </scene>
-        <!--Item-->
+        <!--Stocks-->
         <scene sceneID="mBJ-P6-ei6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JPU-Mv-khf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="fkI-sn-2d6"/>
+                    <tabBarItem key="tabBarItem" title="Stocks" id="fkI-sn-2d6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oYJ-ai-QGD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

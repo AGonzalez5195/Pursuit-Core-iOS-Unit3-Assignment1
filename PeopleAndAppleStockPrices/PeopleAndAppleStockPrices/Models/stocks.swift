@@ -32,14 +32,11 @@ struct Stock: Codable {
         return self.date.toDate(dateFormat: "yyyy-MM-dd")!
     }
     
-    
-    
     static func trimDate(date: String) -> String {
         return String(date.dropLast(3))
     }
     
     static func groupStocksBySection(stockArr: [Stock]) -> [String: [Stock]] {
-    
         var dictionary = [String: [Stock]]()
         
         for specificStock in stockArr {
@@ -52,7 +49,20 @@ struct Stock: Codable {
                 dictionary[key] = [specificStock] //If a key doesn't exist, make it. 
             }
         }
-         return dictionary
+        return dictionary
+    }
+    
+    static func getMonthsAveragePrice(stockArr:[Stock]) -> Double {
+        let sum = stockArr.reduce(0, { $0 + $1.openingPrice})
+        let average = sum / Double(stockArr.count)
+        return average.roundTo(places: 2)
+    }
+    
+    
+    static func buildGroupStocks(_ arr: [Stock]) -> [String:[Stock]] {
+        let sortedStocks = getSortedArr(arr: arr)
+        let groupedStocks = groupStocksBySection(stockArr: sortedStocks)
+        return groupedStocks
     }
 }
 
