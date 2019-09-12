@@ -59,10 +59,10 @@ extension stocksViewController: UITableViewDataSource {
         return stocks.count
     }
     
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sectionKey = sections[indexPath.section]
         guard let stocks = groupedStocks[sectionKey] else {fatalError("no stocks found")}

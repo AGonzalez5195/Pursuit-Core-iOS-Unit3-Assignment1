@@ -28,7 +28,7 @@ class detailUserViewController: UIViewController {
         setCircleOutline()
     }
     
-    func loadImage() {
+   private func loadImage() {
         let urlStr = currentUser.picture.large
         guard let url = URL(string: urlStr) else {return}
         DispatchQueue.global(qos: .userInitiated).async {

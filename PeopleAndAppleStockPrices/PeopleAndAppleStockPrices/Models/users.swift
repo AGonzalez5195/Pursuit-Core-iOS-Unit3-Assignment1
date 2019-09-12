@@ -25,6 +25,7 @@ struct usersModel: Codable {
     }
 }
 
+
 struct userResults: Codable {
     let name: userNameWrapper
     let location: locationWrapper
